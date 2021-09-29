@@ -28,15 +28,16 @@
 		810E00272704120800F51CEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 810E00262704120800F51CEC /* Assets.xcassets */; };
 		810E002A2704120800F51CEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 810E00282704120800F51CEC /* LaunchScreen.storyboard */; };
 		810E002D2704120800F51CEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E002C2704120800F51CEC /* main.m */; };
-		810E0038270414FA00F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; };
 		810E0039270414FA00F51CEC /* DBChainGMSm2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E0037270414FA00F51CEC /* DBChainGMSm2Utils.m */; };
-		810E00442704151600F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; };
 		810E00452704151600F51CEC /* DBChainGMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E00432704151600F51CEC /* DBChainGMUtils.m */; };
-		810E0051270415BE00F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; };
 		810E0052270415BE00F51CEC /* DBChainGMSm2Bio.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E0050270415BE00F51CEC /* DBChainGMSm2Bio.m */; };
+		810E00D227045F1C00F51CEC /* DBChainSm2.h in Headers */ = {isa = PBXBuildFile; fileRef = 810EFFA4270400F000F51CEC /* DBChainSm2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		810E00DB27045F2700F51CEC /* DBChainGMObjcDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004A2704154300F51CEC /* DBChainGMObjcDef.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */; };
 		810EFFB0270400F000F51CEC /* DBChainSm2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */; };
-		810EFFB2270400F000F51CEC /* DBChainSm2.h in Headers */ = {isa = PBXBuildFile; fileRef = 810EFFA4270400F000F51CEC /* DBChainSm2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,10 +184,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				810E0051270415BE00F51CEC /* DBChainGMSm2Bio.h in Headers */,
-				810EFFB2270400F000F51CEC /* DBChainSm2.h in Headers */,
-				810E00442704151600F51CEC /* DBChainGMUtils.h in Headers */,
-				810E0038270414FA00F51CEC /* DBChainGMSm2Utils.h in Headers */,
+				810E00D227045F1C00F51CEC /* DBChainSm2.h in Headers */,
+				810E00DB27045F2700F51CEC /* DBChainGMObjcDef.h in Headers */,
+				810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */,
+				810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */,
+				810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

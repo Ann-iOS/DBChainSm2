@@ -10,13 +10,13 @@ Pod::Spec.new do |spec|
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   # spec.license      = "MIT (example)"
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
   spec.author             = { "YangtingTombay" => "m18620345206@163.com" }
 
   # spec.platform     = :ios
   # spec.platform     = :ios, "9.0"
-  spec.ios.deployment_target = '8.0'
+  spec.ios.deployment_target = '9.0'
   spec.source       = { :git => "https://github.com/Ann-iOS/DBChainSm2.git", :tag => "#{spec.version}" }
   spec.pod_target_xcconfig = { 'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)' }
 
