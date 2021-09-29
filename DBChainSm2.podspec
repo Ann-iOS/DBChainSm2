@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   基于 OpenSSL 封装 SM2 生成密钥对,加解密,签名验签,添加根据私钥生成公钥, 公钥未压缩与压缩格式
                       DESC
 
-  spec.homepage     = "https://github.com/Ann-iOS/DBChainSm2.git"
+  spec.homepage     = "https://github.com/Ann-iOS/DBChainSm2"
 
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -28,5 +28,5 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
   spec.static_framework = true
   #spec.frameworks       = "Security"
-  #spec.dependency "GMOpenSSL"
+  spec.dependency "GMOpenSSL"
 end
