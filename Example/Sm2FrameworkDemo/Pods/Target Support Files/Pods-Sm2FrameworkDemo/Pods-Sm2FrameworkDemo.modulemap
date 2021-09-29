@@ -1,0 +1,6 @@
+framework module Pods_Sm2FrameworkDemo {
+  umbrella header "Pods-Sm2FrameworkDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
