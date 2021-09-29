@@ -1,11 +1,11 @@
- platform :ios, '9.0'
+platform :ios, '9.0'
 
 target 'Sm2FrameworkDemo' do
 
   use_frameworks!
 
 	
-   pod 'DBChainSm2', :path => '../'
+   #pod 'DBChainSm2', :path => '../'
    pod 'CryptoSwift'
 
   target 'Sm2FrameworkDemoTests' do

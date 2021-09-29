@@ -36,6 +36,8 @@
 		810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		810E01482704688100F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E01422704675700F51CEC /* DBChainSm2.framework */; };
+		810E01492704688100F51CEC /* DBChainSm2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 810E01422704675700F51CEC /* DBChainSm2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */; };
 		810EFFB0270400F000F51CEC /* DBChainSm2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */; };
 /* End PBXBuildFile section */
@@ -49,6 +51,20 @@
 			remoteInfo = DBChainSm2;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		810E014A2704688100F51CEC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				810E01492704688100F51CEC /* DBChainSm2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		810E00182704120100F51CEC /* DBChainSm2Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DBChainSm2Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +87,7 @@
 		810E004A2704154300F51CEC /* DBChainGMObjcDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMObjcDef.h; sourceTree = "<group>"; };
 		810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMSm2Bio.h; sourceTree = "<group>"; };
 		810E0050270415BE00F51CEC /* DBChainGMSm2Bio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainGMSm2Bio.m; sourceTree = "<group>"; };
+		810E01422704675700F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChainSm2.framework; path = DBChainSm2/DBChainSm2.framework; sourceTree = SOURCE_ROOT; };
 		810EFFA1270400F000F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DBChainSm2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		810EFFA4270400F000F51CEC /* DBChainSm2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainSm2.h; sourceTree = "<group>"; };
 		810EFFA5270400F000F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810E01482704688100F51CEC /* DBChainSm2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +126,7 @@
 		810E00192704120100F51CEC /* DBChainSm2Demo */ = {
 			isa = PBXGroup;
 			children = (
+				810E01422704675700F51CEC /* DBChainSm2.framework */,
 				810E001A2704120100F51CEC /* AppDelegate.h */,
 				810E001B2704120100F51CEC /* AppDelegate.m */,
 				810E001D2704120100F51CEC /* SceneDelegate.h */,
@@ -202,6 +221,7 @@
 				810E00142704120100F51CEC /* Sources */,
 				810E00152704120100F51CEC /* Frameworks */,
 				810E00162704120100F51CEC /* Resources */,
+				810E014A2704688100F51CEC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -405,6 +425,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DBChainSm2",
+				);
 				INFOPLIST_FILE = DBChainSm2Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,6 +447,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DBChainSm2",
+				);
 				INFOPLIST_FILE = DBChainSm2Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

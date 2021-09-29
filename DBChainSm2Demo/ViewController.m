@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import <DBChainSm2/DBChainSm2.h>
 
 @interface ViewController ()
 

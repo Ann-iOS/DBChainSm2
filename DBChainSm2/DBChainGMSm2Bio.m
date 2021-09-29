@@ -6,10 +6,10 @@
 //
 
 #import "DBChainGMSm2Bio.h"
-#import <openssl/sm2.h>
 #import <openssl/bn.h>
 #import <openssl/pem.h>
 #import "DBChainGMUtils.h"
+#import <openssl/sm2.h>
 
 // 默认椭圆曲线类型 NID_sm2
 static int kDefaultBioEllipticCurveType = NID_sm2;
