@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param userID 用户 ID（普通字符串）；userHex 用户 ID（Hex 编码格式）；userID 用户 ID（NSData 格式）
 //+ (nullable NSString *)signText:(NSString *)plaintext privateKey:(NSString *)priKey userID:(nullable NSString *)userID;
 + (nullable NSString *)signHex:(NSString *)plainHex privateKey:(NSString *)priKey userHex:(nullable NSString *)userHex;
-+ (nullable NSString *)signData:(NSData *)plainData priKey:(NSString *)priKey userData:(nullable NSData *)userData;
+//+ (nullable NSString *)signData:(NSData *)plainData priKey:(NSString *)priKey userData:(nullable NSData *)userData;
 
 /// SM2 验证数字签名。返回值：验签结果，YES 为通过，NO 为不通过
 /// userID 或 userHex，用户ID 可传空值，为空时默认 1234567812345678；不为空时，签名和验签需要相同 ID
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param userID 用户 ID（普通字符串）；userHex 用户 ID（Hex 编码格式）；userID 用户 ID（NSData 格式）
 //+ (BOOL)verifyText:(NSString *)plaintext signRS:(NSString *)signRS publicKey:(NSString *)pubKey userID:(nullable NSString *)userID;
 + (BOOL)verifyHex:(NSString *)plainHex signRS:(NSString *)signRS publicKey:(NSString *)pubKey userHex:(nullable NSString *)userHex;
-+ (BOOL)verifyData:(NSData *)plainData signRS:(NSString *)signRS pubKey:(NSString *)pubKey userData:(nullable NSData *)userData;
+//+ (BOOL)verifyData:(NSData *)plainData signRS:(NSString *)signRS pubKey:(NSString *)pubKey userData:(nullable NSData *)userData;
 
 ///MARK: - Der 编码解码
 /// Der 编码。返回值：SM2 数字签名， Der 编码格式

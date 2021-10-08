@@ -36,10 +36,10 @@
 		810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		810E01482704688100F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E01422704675700F51CEC /* DBChainSm2.framework */; };
-		810E01492704688100F51CEC /* DBChainSm2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 810E01422704675700F51CEC /* DBChainSm2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */; };
 		810EFFB0270400F000F51CEC /* DBChainSm2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */; };
+		81D7DA4B270568E8003A0C58 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810E0035270412A100F51CEC /* openssl.framework */; };
+		81D7DA5C270583ED003A0C58 /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81D7DA5B270583ED003A0C58 /* DBChainSm2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				810E01492704688100F51CEC /* DBChainSm2.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,7 +76,6 @@
 		810E00242704120100F51CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		810E00262704120800F51CEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		810E00292704120800F51CEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		810E002B2704120800F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		810E002C2704120800F51CEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		810E0035270412A100F51CEC /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
 		810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMSm2Utils.h; sourceTree = "<group>"; };
@@ -87,13 +85,13 @@
 		810E004A2704154300F51CEC /* DBChainGMObjcDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMObjcDef.h; sourceTree = "<group>"; };
 		810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMSm2Bio.h; sourceTree = "<group>"; };
 		810E0050270415BE00F51CEC /* DBChainGMSm2Bio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainGMSm2Bio.m; sourceTree = "<group>"; };
-		810E01422704675700F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChainSm2.framework; path = DBChainSm2/DBChainSm2.framework; sourceTree = SOURCE_ROOT; };
 		810EFFA1270400F000F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DBChainSm2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		810EFFA4270400F000F51CEC /* DBChainSm2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainSm2.h; sourceTree = "<group>"; };
 		810EFFA5270400F000F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		810EFFAA270400F000F51CEC /* DBChainSm2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DBChainSm2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainSm2Tests.m; sourceTree = "<group>"; };
 		810EFFB1270400F000F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81D7DA5B270583ED003A0C58 /* DBChainSm2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChainSm2.framework; path = DBChainSm2/DBChainSm2.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				810E01482704688100F51CEC /* DBChainSm2.framework in Frameworks */,
+				81D7DA5C270583ED003A0C58 /* DBChainSm2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D7DA4B270568E8003A0C58 /* openssl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +125,7 @@
 		810E00192704120100F51CEC /* DBChainSm2Demo */ = {
 			isa = PBXGroup;
 			children = (
-				810E01422704675700F51CEC /* DBChainSm2.framework */,
+				81D7DA5B270583ED003A0C58 /* DBChainSm2.framework */,
 				810E001A2704120100F51CEC /* AppDelegate.h */,
 				810E001B2704120100F51CEC /* AppDelegate.m */,
 				810E001D2704120100F51CEC /* SceneDelegate.h */,
@@ -136,7 +135,6 @@
 				810E00232704120100F51CEC /* Main.storyboard */,
 				810E00262704120800F51CEC /* Assets.xcassets */,
 				810E00282704120800F51CEC /* LaunchScreen.storyboard */,
-				810E002B2704120800F51CEC /* Info.plist */,
 				810E002C2704120800F51CEC /* main.m */,
 			);
 			path = DBChainSm2Demo;
@@ -425,6 +423,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 x86_64 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",
@@ -583,6 +582,10 @@
 		810EFFB6270400F000F51CEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
@@ -590,6 +593,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",

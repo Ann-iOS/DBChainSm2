@@ -334,6 +334,11 @@ static int kDefaultEllipticCurveType = NID_sm2;
             break;
         }
 
+//        // int sm2_plaintext_size(const EC_KEY *key, const EVP_MD *digest, size_t msg_len,
+//        // size_t *pt_size);
+//        if (!sm2_plaintext_size) {
+//            <#statements#>
+//        }
         plaintext = (uint8_t *)OPENSSL_zalloc(ptext_len);
         if (!sm2_decrypt(key, digest, cipher_bytes, ctext_len, plaintext, &ptext_len)) {
             break;
@@ -388,199 +393,199 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
 ///MARK: - ASN1 编码
 
-//+ (NSData *)asn1EnC1Hex:(NSString *)c1 c3Data:(NSData *)c3 c2Data:(NSData *)c2{
-//    if (c1.length == 0 || c3.length == 0 || c2.length == 0) {
-//        return nil;
-//    }
-//
-//    NSUInteger c1_len = c1.length;
-//    const char *c1_x_hex = [c1 substringWithRange:NSMakeRange(0, c1_len/2)].UTF8String;
-//    const char *c1_y_hex = [c1 substringWithRange:NSMakeRange(c1_len/2, c1_len/2)].UTF8String;
-//    uint8_t *c3_text = (uint8_t *)c3.bytes;
-//    size_t c3_len = c3.length;
-//    uint8_t *c2_text = (uint8_t *)c2.bytes;
-//    size_t c2_len = c2.length;
-//
-//    // ASN1 编码后存储数据的结构体
-//    struct SM2_Ciphertext_st_1 ctext_st;
-//    ctext_st.C2 = NULL;
-//    ctext_st.C3 = NULL;
-//    BIGNUM *x1 = NULL;
-//    BIGNUM *y1 = NULL;
-//    NSData *asn1Data = nil;
-//    do {
-//        if (!BN_hex2bn(&x1, c1_x_hex)) {
-//            break;
-//        }
-//        if (!BN_hex2bn(&y1, c1_y_hex)) {
-//            break;
-//        }
-//        ctext_st.C1x = x1;
-//        ctext_st.C1y = y1;
-//        ctext_st.C3 = ASN1_OCTET_STRING_new();
-//        ctext_st.C2 = ASN1_OCTET_STRING_new();
-//        if (ctext_st.C3 == NULL || ctext_st.C2 == NULL) {
-//            break;
-//        }
-//        if (!ASN1_OCTET_STRING_set(ctext_st.C3, (uint8_t *)c3_text, (int)c3_len)
-//            || !ASN1_OCTET_STRING_set(ctext_st.C2, (uint8_t *)c2_text, (int)c2_len)) {
-//            break;
-//        }
-//        uint8_t *asn1_buf = NULL; // 编码
-//        int asn1_len = i2d_SM2_Ciphertext_1(&ctext_st, &asn1_buf);
-//        /* Ensure cast to size_t is safe */
-//        if (asn1_len < 0 || !asn1_buf) {
-//            break;
-//        }
-//        asn1Data = [NSData dataWithBytes:asn1_buf length:asn1_len];
-//        free(asn1_buf); // 释放 buf
-//    } while (NO);
-//
-//    ASN1_OCTET_STRING_free(ctext_st.C2);
-//    ASN1_OCTET_STRING_free(ctext_st.C3);
-//    BN_free(x1);
-//    BN_free(y1);
-//
-//    return asn1Data;
-//}
++ (NSData *)asn1EnC1Hex:(NSString *)c1 c3Data:(NSData *)c3 c2Data:(NSData *)c2{
+    if (c1.length == 0 || c3.length == 0 || c2.length == 0) {
+        return nil;
+    }
 
-//+ (nullable NSString *)asn1EncodeWithC1C3C2:(NSString *)c1c3c2Hex{
-//    if (c1c3c2Hex.length <= 192) {
-//        return nil;
-//    }
-//    NSString *upperEnText = c1c3c2Hex.uppercaseString;
-//    NSString *c1Hex = [upperEnText substringWithRange:NSMakeRange(0, 128)];
-//    NSString *c3Hex = [upperEnText substringWithRange:NSMakeRange(128, 64)];
-//    NSString *c2Hex = [upperEnText substringFromIndex:192];
-//
-//    NSData *c3Data = [DBChainGMUtils hexToData:c3Hex];
-//    NSData *c2Data = [DBChainGMUtils hexToData:c2Hex];
-//    if (c3Data.length == 0 || c2Data.length == 0) {
-//        return nil;
-//    }
-//
-//    NSData *asn1Data = [self asn1EnC1Hex:c1Hex c3Data:c3Data c2Data:c2Data];
-//    if (asn1Data.length == 0) {
-//        return nil;
-//    }
-//
-//    NSString *asn1Str = [DBChainGMUtils dataToHex:asn1Data];
-//
-//    return asn1Str;
-//}
+    NSUInteger c1_len = c1.length;
+    const char *c1_x_hex = [c1 substringWithRange:NSMakeRange(0, c1_len/2)].UTF8String;
+    const char *c1_y_hex = [c1 substringWithRange:NSMakeRange(c1_len/2, c1_len/2)].UTF8String;
+    uint8_t *c3_text = (uint8_t *)c3.bytes;
+    size_t c3_len = c3.length;
+    uint8_t *c2_text = (uint8_t *)c2.bytes;
+    size_t c2_len = c2.length;
 
-//+ (nullable NSString *)asn1EncodeWithC1C3C2Array:(NSArray<NSString *> *)c1c3c2Array{
-//    if (c1c3c2Array.count != 3) {
-//        return nil;
-//    }
-//
-//    NSArray<NSString *> *c1c3c2 =c1c3c2Array;
-//    NSString *c1c3c2Hex = [NSString stringWithFormat:@"%@%@%@", c1c3c2[0], c1c3c2[1], c1c3c2[2]];
-//
-//    NSString *asn1Hex = [self asn1EncodeWithC1C3C2:c1c3c2Hex];
-//    return asn1Hex;
-//}
+    // ASN1 编码后存储数据的结构体
+    struct SM2_Ciphertext_st_1 ctext_st;
+    ctext_st.C2 = NULL;
+    ctext_st.C3 = NULL;
+    BIGNUM *x1 = NULL;
+    BIGNUM *y1 = NULL;
+    NSData *asn1Data = nil;
+    do {
+        if (!BN_hex2bn(&x1, c1_x_hex)) {
+            break;
+        }
+        if (!BN_hex2bn(&y1, c1_y_hex)) {
+            break;
+        }
+        ctext_st.C1x = x1;
+        ctext_st.C1y = y1;
+        ctext_st.C3 = ASN1_OCTET_STRING_new();
+        ctext_st.C2 = ASN1_OCTET_STRING_new();
+        if (ctext_st.C3 == NULL || ctext_st.C2 == NULL) {
+            break;
+        }
+        if (!ASN1_OCTET_STRING_set(ctext_st.C3, (uint8_t *)c3_text, (int)c3_len)
+            || !ASN1_OCTET_STRING_set(ctext_st.C2, (uint8_t *)c2_text, (int)c2_len)) {
+            break;
+        }
+        uint8_t *asn1_buf = NULL; // 编码
+        int asn1_len = i2d_SM2_Ciphertext_1(&ctext_st, &asn1_buf);
+        /* Ensure cast to size_t is safe */
+        if (asn1_len < 0 || !asn1_buf) {
+            break;
+        }
+        asn1Data = [NSData dataWithBytes:asn1_buf length:asn1_len];
+        free(asn1_buf); // 释放 buf
+    } while (NO);
 
-//+ (nullable NSData *)asn1EncodeWithC1C3C2Data:(NSData *)c1c3c2Data{
-//    if (c1c3c2Data.length <= 96) {
-//        return nil;
-//    }
-//    NSData *c1Data = [c1c3c2Data subdataWithRange:NSMakeRange(0, 64)];
-//    NSData *c3Data = [c1c3c2Data subdataWithRange:NSMakeRange(64, 32)];
-//    NSData *c2Data = [c1c3c2Data subdataWithRange:NSMakeRange(96, c1c3c2Data.length - 96)];
-//
-//    NSString *c1Hex = [DBChainGMUtils dataToHex:c1Data];
-//    NSData *asn1Data = [self asn1EnC1Hex:c1Hex c3Data:c3Data c2Data:c2Data];
-//
-//    return asn1Data;
-//}
+    ASN1_OCTET_STRING_free(ctext_st.C2);
+    ASN1_OCTET_STRING_free(ctext_st.C3);
+    BN_free(x1);
+    BN_free(y1);
+
+    return asn1Data;
+}
+
++ (nullable NSString *)asn1EncodeWithC1C3C2:(NSString *)c1c3c2Hex{
+    if (c1c3c2Hex.length <= 192) {
+        return nil;
+    }
+    NSString *upperEnText = c1c3c2Hex.uppercaseString;
+    NSString *c1Hex = [upperEnText substringWithRange:NSMakeRange(0, 128)];
+    NSString *c3Hex = [upperEnText substringWithRange:NSMakeRange(128, 64)];
+    NSString *c2Hex = [upperEnText substringFromIndex:192];
+
+    NSData *c3Data = [DBChainGMUtils hexToData:c3Hex];
+    NSData *c2Data = [DBChainGMUtils hexToData:c2Hex];
+    if (c3Data.length == 0 || c2Data.length == 0) {
+        return nil;
+    }
+
+    NSData *asn1Data = [self asn1EnC1Hex:c1Hex c3Data:c3Data c2Data:c2Data];
+    if (asn1Data.length == 0) {
+        return nil;
+    }
+
+    NSString *asn1Str = [DBChainGMUtils dataToHex:asn1Data];
+
+    return asn1Str;
+}
+
++ (nullable NSString *)asn1EncodeWithC1C3C2Array:(NSArray<NSString *> *)c1c3c2Array{
+    if (c1c3c2Array.count != 3) {
+        return nil;
+    }
+
+    NSArray<NSString *> *c1c3c2 =c1c3c2Array;
+    NSString *c1c3c2Hex = [NSString stringWithFormat:@"%@%@%@", c1c3c2[0], c1c3c2[1], c1c3c2[2]];
+
+    NSString *asn1Hex = [self asn1EncodeWithC1C3C2:c1c3c2Hex];
+    return asn1Hex;
+}
+
++ (nullable NSData *)asn1EncodeWithC1C3C2Data:(NSData *)c1c3c2Data{
+    if (c1c3c2Data.length <= 96) {
+        return nil;
+    }
+    NSData *c1Data = [c1c3c2Data subdataWithRange:NSMakeRange(0, 64)];
+    NSData *c3Data = [c1c3c2Data subdataWithRange:NSMakeRange(64, 32)];
+    NSData *c2Data = [c1c3c2Data subdataWithRange:NSMakeRange(96, c1c3c2Data.length - 96)];
+
+    NSString *c1Hex = [DBChainGMUtils dataToHex:c1Data];
+    NSData *asn1Data = [self asn1EnC1Hex:c1Hex c3Data:c3Data c2Data:c2Data];
+
+    return asn1Data;
+}
 
 ///MARK: - ASN1 解码
 
-//+ (NSArray<NSData *> *)asn1DeToC1C3C2Data:(NSData *)asn1Data{
-//    long asn1_ctext_len = asn1Data.length; // ASN1格式密文原文长度
-//    const uint8_t *asn1_ctext = (uint8_t *)asn1Data.bytes;
-//
-//    const EVP_MD *digest = EVP_sm3(); // 摘要算法
-//    struct SM2_Ciphertext_st_1 *sm2_st = NULL;
-//    sm2_st = d2i_SM2_Ciphertext_1(NULL, &asn1_ctext, asn1_ctext_len);
-//    // C1
-//    char *c1x_text = BN_bn2hex(sm2_st->C1x);
-//    char *c1y_text = BN_bn2hex(sm2_st->C1y);
-//    NSString *c1xStr = [NSString stringWithCString:c1x_text encoding:NSUTF8StringEncoding];
-//    NSString *c1yStr = [NSString stringWithCString:c1y_text encoding:NSUTF8StringEncoding];
-//    // 如果转 Hex 不足 64 位前面补 0
-//    NSString *paddingC1X = [self bnToHexPadding:c1xStr];
-//    NSString *paddingC1Y = [self bnToHexPadding:c1yStr];
-//    NSString *c1Hex = [NSString stringWithFormat:@"%@%@", paddingC1X, paddingC1Y];
-//    NSData *c1Data = [DBChainGMUtils hexToData:c1Hex];
-//    // C3
-//    const int c3_len = EVP_MD_size(digest);
-//    NSData *c3Data = [NSData dataWithBytes:sm2_st->C3->data length:c3_len];
-//    // C2
-//    int c2_len = sm2_st->C2->length;
-//    NSData *c2Data = [NSData dataWithBytes:sm2_st->C2->data length:c2_len];
-//
-//    OPENSSL_free(c1x_text);
-//    OPENSSL_free(c1y_text);
-//    SM2_Ciphertext_1_free(sm2_st);
-//
-//    if (!c1Data || !c3Data || !c2Data) {
-//        return nil;
-//    }
-//
-//    return @[c1Data, c3Data, c2Data];
-//}
++ (NSArray<NSData *> *)asn1DeToC1C3C2Data:(NSData *)asn1Data{
+    long asn1_ctext_len = asn1Data.length; // ASN1格式密文原文长度
+    const uint8_t *asn1_ctext = (uint8_t *)asn1Data.bytes;
 
-//+ (nullable NSString *)asn1DecodeToC1C3C2:(NSString *)asn1Hex{
-//    NSArray<NSString *> *c1c3c2 = [self asn1DecodeToC1C3C2Array:asn1Hex];
-//    if (c1c3c2.count != 3) {
-//        return nil;
-//    }
-//
-//    NSString *c1c3c2Hex = [NSString stringWithFormat:@"%@%@%@", c1c3c2[0], c1c3c2[1], c1c3c2[2]];
-//    return c1c3c2Hex;
-//}
+    const EVP_MD *digest = EVP_sm3(); // 摘要算法
+    struct SM2_Ciphertext_st_1 *sm2_st = NULL;
+    sm2_st = d2i_SM2_Ciphertext_1(NULL, &asn1_ctext, asn1_ctext_len);
+    // C1
+    char *c1x_text = BN_bn2hex(sm2_st->C1x);
+    char *c1y_text = BN_bn2hex(sm2_st->C1y);
+    NSString *c1xStr = [NSString stringWithCString:c1x_text encoding:NSUTF8StringEncoding];
+    NSString *c1yStr = [NSString stringWithCString:c1y_text encoding:NSUTF8StringEncoding];
+    // 如果转 Hex 不足 64 位前面补 0
+    NSString *paddingC1X = [self bnToHexPadding:c1xStr];
+    NSString *paddingC1Y = [self bnToHexPadding:c1yStr];
+    NSString *c1Hex = [NSString stringWithFormat:@"%@%@", paddingC1X, paddingC1Y];
+    NSData *c1Data = [DBChainGMUtils hexToData:c1Hex];
+    // C3
+    const int c3_len = EVP_MD_size(digest);
+    NSData *c3Data = [NSData dataWithBytes:sm2_st->C3->data length:c3_len];
+    // C2
+    int c2_len = sm2_st->C2->length;
+    NSData *c2Data = [NSData dataWithBytes:sm2_st->C2->data length:c2_len];
 
-//+ (nullable NSArray<NSString *> *)asn1DecodeToC1C3C2Array:(NSString *)asn1Hex{
-//    if (asn1Hex.length == 0) {
-//        return nil;
-//    }
-//    NSData *asn1Data = [DBChainGMUtils hexToData:asn1Hex];
-//    if (asn1Data.length == 0) {
-//        return nil;
-//    }
-//    NSArray<NSData *> *decodedArray = [self asn1DeToC1C3C2Data:asn1Data];
-//    if (decodedArray.count != 3) {
-//        return nil;
-//    }
-//    NSString *c1Hex = [DBChainGMUtils dataToHex:decodedArray[0]];
-//    NSString *c3Hex = [DBChainGMUtils dataToHex:decodedArray[1]];
-//    NSString *c2Hex = [DBChainGMUtils dataToHex:decodedArray[2]];
-//
-//    if (c1Hex.length == 0 || c3Hex.length == 0 || c2Hex.length == 0) {
-//        return nil;
-//    }
-//
-//    return @[c1Hex, c3Hex, c2Hex];
-//}
+    OPENSSL_free(c1x_text);
+    OPENSSL_free(c1y_text);
+    SM2_Ciphertext_1_free(sm2_st);
 
-//+ (nullable NSData *)asn1DecodeToC1C3C2Data:(NSData *)asn1Data{
-//    if (asn1Data.length == 0) {
-//        return nil;
-//    }
-//
-//    NSArray<NSData *> *c1c3c2Array = [self asn1DeToC1C3C2Data:asn1Data];
-//    if (c1c3c2Array.count != 3) {
-//        return nil;
-//    }
-//
-//    NSMutableData *c1c3c2Data = [NSMutableData dataWithData:c1c3c2Array[0]];
-//    [c1c3c2Data appendData:c1c3c2Array[1]];
-//    [c1c3c2Data appendData:c1c3c2Array[2]];
-//
-//    return c1c3c2Data;
-//}
+    if (!c1Data || !c3Data || !c2Data) {
+        return nil;
+    }
+
+    return @[c1Data, c3Data, c2Data];
+}
+
++ (nullable NSString *)asn1DecodeToC1C3C2:(NSString *)asn1Hex{
+    NSArray<NSString *> *c1c3c2 = [self asn1DecodeToC1C3C2Array:asn1Hex];
+    if (c1c3c2.count != 3) {
+        return nil;
+    }
+
+    NSString *c1c3c2Hex = [NSString stringWithFormat:@"%@%@%@", c1c3c2[0], c1c3c2[1], c1c3c2[2]];
+    return c1c3c2Hex;
+}
+
++ (nullable NSArray<NSString *> *)asn1DecodeToC1C3C2Array:(NSString *)asn1Hex{
+    if (asn1Hex.length == 0) {
+        return nil;
+    }
+    NSData *asn1Data = [DBChainGMUtils hexToData:asn1Hex];
+    if (asn1Data.length == 0) {
+        return nil;
+    }
+    NSArray<NSData *> *decodedArray = [self asn1DeToC1C3C2Data:asn1Data];
+    if (decodedArray.count != 3) {
+        return nil;
+    }
+    NSString *c1Hex = [DBChainGMUtils dataToHex:decodedArray[0]];
+    NSString *c3Hex = [DBChainGMUtils dataToHex:decodedArray[1]];
+    NSString *c2Hex = [DBChainGMUtils dataToHex:decodedArray[2]];
+
+    if (c1Hex.length == 0 || c3Hex.length == 0 || c2Hex.length == 0) {
+        return nil;
+    }
+
+    return @[c1Hex, c3Hex, c2Hex];
+}
+
++ (nullable NSData *)asn1DecodeToC1C3C2Data:(NSData *)asn1Data{
+    if (asn1Data.length == 0) {
+        return nil;
+    }
+
+    NSArray<NSData *> *c1c3c2Array = [self asn1DeToC1C3C2Data:asn1Data];
+    if (c1c3c2Array.count != 3) {
+        return nil;
+    }
+
+    NSMutableData *c1c3c2Data = [NSMutableData dataWithData:c1c3c2Array[0]];
+    [c1c3c2Data appendData:c1c3c2Array[1]];
+    [c1c3c2Data appendData:c1c3c2Array[2]];
+
+    return c1c3c2Data;
+}
 
 ///MARK: - SM2 签名
 + (nullable NSString *)signData:(NSData *)plainData priKey:(NSString *)priKey userData:(nullable NSData *)userData{
@@ -679,17 +684,17 @@ static int kDefaultEllipticCurveType = NID_sm2;
 }
 
 // 普通字符串签名
-//+ (nullable NSString *)signText:(NSString *)plaintext privateKey:(NSString *)priKey userID:(nullable NSString *)userID{
-//    if (plaintext.length == 0 || priKey.length == 0) {
-//        return nil;
-//    }
-//
-//    NSData *plainData = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
-//    NSData *userData = [userID dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *signRS = [self signData:plainData priKey:priKey userData:userData];
-//
-//    return signRS;
-//}
++ (nullable NSString *)signText:(NSString *)plaintext privateKey:(NSString *)priKey userID:(nullable NSString *)userID{
+    if (plaintext.length == 0 || priKey.length == 0) {
+        return nil;
+    }
+
+    NSData *plainData = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *userData = [userID dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *signRS = [self signData:plainData priKey:priKey userData:userData];
+
+    return signRS;
+}
 
 ///MARK: - SM2 验签
 
@@ -772,173 +777,173 @@ static int kDefaultEllipticCurveType = NID_sm2;
     return isOK;
 }
 
-//+ (BOOL)verifyText:(NSString *)plaintext signRS:(NSString *)signRS publicKey:(NSString *)pubKey userID:(nullable NSString *)userID{
-//    if (plaintext.length == 0 || signRS.length == 0 || pubKey.length == 0) {
-//        return NO;
-//    }
-//
-//    NSData *plainData = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
-//    NSData *userData = [userID dataUsingEncoding:NSUTF8StringEncoding];
-//
-//    BOOL isOK = [self verifyData:plainData signRS:signRS pubKey:pubKey userData:userData];
-//    return isOK;
-//}
++ (BOOL)verifyText:(NSString *)plaintext signRS:(NSString *)signRS publicKey:(NSString *)pubKey userID:(nullable NSString *)userID{
+    if (plaintext.length == 0 || signRS.length == 0 || pubKey.length == 0) {
+        return NO;
+    }
+
+    NSData *plainData = [plaintext dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *userData = [userID dataUsingEncoding:NSUTF8StringEncoding];
+
+    BOOL isOK = [self verifyData:plainData signRS:signRS pubKey:pubKey userData:userData];
+    return isOK;
+}
 
 ///MARK: - SM2签名 Der 编码
 
-//+ (nullable NSString *)derEncode:(NSString *)signRS{
-//    if (signRS.length == 0) {
-//        return nil;
-//    }
-//    NSInteger signLen = signRS.length;
-//    NSString *r_hex = [signRS substringToIndex:signLen/2];
-//    NSString *s_hex = [signRS substringFromIndex:signLen/2];
-//
-//    ECDSA_SIG *sig = NULL;  // 签名结果
-//    BIGNUM *sig_r = NULL;
-//    BIGNUM *sig_s = NULL;
-//    NSString *derEncode = nil;
-//    do {
-//        if (!BN_hex2bn(&sig_r, r_hex.UTF8String)) {
-//            break;
-//        }
-//        if (!BN_hex2bn(&sig_s, s_hex.UTF8String)) {
-//            break;
-//        }
-//        sig = ECDSA_SIG_new();
-//        if (sig == NULL) {
-//            BN_free(sig_r);
-//            BN_free(sig_s);
-//            break;
-//        }
-//        if (!ECDSA_SIG_set0(sig, sig_r, sig_s)) {
-//            break;
-//        }
-//        unsigned char *der_sig = NULL;
-//        int der_sig_len = i2d_ECDSA_SIG(sig, &der_sig);
-//        if (der_sig_len < 0) {
-//            break;
-//        }
-//        NSData *derData = [NSData dataWithBytes:der_sig length:der_sig_len];
-//        derEncode = [DBChainGMUtils dataToHex:derData];
-//
-//        OPENSSL_free(der_sig);
-//    } while (NO);
-//
-//    ECDSA_SIG_free(sig);
-//
-//    return derEncode;
-//}
++ (nullable NSString *)derEncode:(NSString *)signRS{
+    if (signRS.length == 0) {
+        return nil;
+    }
+    NSInteger signLen = signRS.length;
+    NSString *r_hex = [signRS substringToIndex:signLen/2];
+    NSString *s_hex = [signRS substringFromIndex:signLen/2];
+
+    ECDSA_SIG *sig = NULL;  // 签名结果
+    BIGNUM *sig_r = NULL;
+    BIGNUM *sig_s = NULL;
+    NSString *derEncode = nil;
+    do {
+        if (!BN_hex2bn(&sig_r, r_hex.UTF8String)) {
+            break;
+        }
+        if (!BN_hex2bn(&sig_s, s_hex.UTF8String)) {
+            break;
+        }
+        sig = ECDSA_SIG_new();
+        if (sig == NULL) {
+            BN_free(sig_r);
+            BN_free(sig_s);
+            break;
+        }
+        if (!ECDSA_SIG_set0(sig, sig_r, sig_s)) {
+            break;
+        }
+        unsigned char *der_sig = NULL;
+        int der_sig_len = i2d_ECDSA_SIG(sig, &der_sig);
+        if (der_sig_len < 0) {
+            break;
+        }
+        NSData *derData = [NSData dataWithBytes:der_sig length:der_sig_len];
+        derEncode = [DBChainGMUtils dataToHex:derData];
+
+        OPENSSL_free(der_sig);
+    } while (NO);
+
+    ECDSA_SIG_free(sig);
+
+    return derEncode;
+}
 
 ///MARK: - SM2签名 Der 解码
 
-//+ (nullable NSString *)derDecode:(NSString *)derSign{
-//    if (derSign.length == 0) {
-//        return nil;
-//    }
-//
-//    NSData *derData = [DBChainGMUtils hexToData:derSign];
-//    size_t sign_len = derData.length;
-//    const uint8_t *sign_char = (uint8_t *)derData.bytes; // 明文
-//    // 复制一份，对比验证
-//    NSData *derCopy = derData.mutableCopy;
-//    uint8_t *sign_copy = (uint8_t *)derCopy.bytes;
-//
-//    ECDSA_SIG *sig = NULL;
-//    const BIGNUM *sig_r = NULL;
-//    const BIGNUM *sig_s = NULL;
-//    unsigned char *der = NULL;
-//    int derlen = -1;
-//
-//    NSString *originSign = nil;
-//
-//    do {
-//        sig = ECDSA_SIG_new();
-//        if (sig == NULL) {
-//            break;
-//        }
-//        if (d2i_ECDSA_SIG(&sig, &sign_char, sign_len) == NULL) {
-//            break;
-//        }
-//        /* Ensure signature uses DER and doesn't have trailing garbage */
-//        derlen = i2d_ECDSA_SIG(sig, &der);
-//        if (derlen != sign_len || memcmp(sign_copy, der, derlen) != 0) {
-//            break;
-//        }
-//        // 取出 r, s
-//        ECDSA_SIG_get0(sig, &sig_r, &sig_s);
-//        char *r_hex = BN_bn2hex(sig_r);
-//        char *s_hex = BN_bn2hex(sig_s);
-//        NSString *rStr = [NSString stringWithCString:r_hex encoding:NSUTF8StringEncoding];
-//        NSString *sStr = [NSString stringWithCString:s_hex encoding:NSUTF8StringEncoding];
-//        OPENSSL_free(r_hex);
-//        OPENSSL_free(s_hex);
-//        if (rStr.length == 0 || sStr.length == 0) {
-//            break;
-//        }
-//        // 如果转 Hex 不足 64 位前面补 0
-//        NSString *paddingR = [self bnToHexPadding:rStr];
-//        NSString *paddingS = [self bnToHexPadding:sStr];
-//        originSign = [NSString stringWithFormat:@"%@%@", paddingR, paddingS];
-//    } while (NO);
-//
-//    ECDSA_SIG_free(sig);
-//    OPENSSL_free(der);
-//
-//    return originSign;
-//}
++ (nullable NSString *)derDecode:(NSString *)derSign{
+    if (derSign.length == 0) {
+        return nil;
+    }
+
+    NSData *derData = [DBChainGMUtils hexToData:derSign];
+    size_t sign_len = derData.length;
+    const uint8_t *sign_char = (uint8_t *)derData.bytes; // 明文
+    // 复制一份，对比验证
+    NSData *derCopy = derData.mutableCopy;
+    uint8_t *sign_copy = (uint8_t *)derCopy.bytes;
+
+    ECDSA_SIG *sig = NULL;
+    const BIGNUM *sig_r = NULL;
+    const BIGNUM *sig_s = NULL;
+    unsigned char *der = NULL;
+    int derlen = -1;
+
+    NSString *originSign = nil;
+
+    do {
+        sig = ECDSA_SIG_new();
+        if (sig == NULL) {
+            break;
+        }
+        if (d2i_ECDSA_SIG(&sig, &sign_char, sign_len) == NULL) {
+            break;
+        }
+        /* Ensure signature uses DER and doesn't have trailing garbage */
+        derlen = i2d_ECDSA_SIG(sig, &der);
+        if (derlen != sign_len || memcmp(sign_copy, der, derlen) != 0) {
+            break;
+        }
+        // 取出 r, s
+        ECDSA_SIG_get0(sig, &sig_r, &sig_s);
+        char *r_hex = BN_bn2hex(sig_r);
+        char *s_hex = BN_bn2hex(sig_s);
+        NSString *rStr = [NSString stringWithCString:r_hex encoding:NSUTF8StringEncoding];
+        NSString *sStr = [NSString stringWithCString:s_hex encoding:NSUTF8StringEncoding];
+        OPENSSL_free(r_hex);
+        OPENSSL_free(s_hex);
+        if (rStr.length == 0 || sStr.length == 0) {
+            break;
+        }
+        // 如果转 Hex 不足 64 位前面补 0
+        NSString *paddingR = [self bnToHexPadding:rStr];
+        NSString *paddingS = [self bnToHexPadding:sStr];
+        originSign = [NSString stringWithFormat:@"%@%@", paddingR, paddingS];
+    } while (NO);
+
+    ECDSA_SIG_free(sig);
+    OPENSSL_free(der);
+
+    return originSign;
+}
 
 ///MARK: - ECDH 密钥协商
 
-//+ (nullable NSString *)computeECDH:(NSString *)publicKey privateKey:(NSString *)privateKey{
-//    if (!publicKey || publicKey.length == 0 || !privateKey || privateKey.length == 0) {
-//        return nil;
-//    }
-//
-//    const char *public_key = publicKey.UTF8String;
-//    const char *private_key = privateKey.UTF8String; // 私钥
-//    EC_GROUP *group = EC_GROUP_new_by_curve_name(kDefaultEllipticCurveType); // 椭圆曲线
-//
-//    EC_POINT *pub_point = NULL;  // 公钥
-//    BIGNUM *pri_big_num = NULL; // 私钥
-//    EC_KEY *key = NULL;  // 密钥结构体
-//    NSString *ecdhStr = nil; // 协商出的密钥字符
-//
-//    do {
-//        // 公钥转换为 EC_POINT
-//        pub_point = EC_POINT_new(group);
-//        EC_POINT_hex2point(group, public_key, pub_point, NULL);
-//        // 私钥转换为 BIGNUM 并存储在 EC_KEY 中
-//        if (!BN_hex2bn(&pri_big_num, private_key)) {
-//            break;
-//        }
-//        key = EC_KEY_new();
-//        if (!EC_KEY_set_group(key, group)) {
-//            break;
-//        }
-//        if (!EC_KEY_set_private_key(key, pri_big_num)) {
-//            break;
-//        }
-//
-//        size_t outlen = 32;
-//        uint8_t *ecdh_text = (uint8_t *)OPENSSL_zalloc(outlen + 1);
-//        int ret = ECDH_compute_key(ecdh_text, outlen, pub_point, key, 0);
-//        if (ret <= 0) {
-//            break;
-//        }
-//        NSData *ecdhData = [NSData dataWithBytes:ecdh_text length:outlen];
-//        ecdhStr = [DBChainGMUtils dataToHex:ecdhData];
-//
-//        OPENSSL_free(ecdh_text);
-//    } while (NO);
-//
-//    if (group != NULL) EC_GROUP_free(group);
-//    EC_POINT_free(pub_point);
-//    BN_free(pri_big_num);
-//    EC_KEY_free(key);
-//
-//    return ecdhStr;
-//}
++ (nullable NSString *)computeECDH:(NSString *)publicKey privateKey:(NSString *)privateKey{
+    if (!publicKey || publicKey.length == 0 || !privateKey || privateKey.length == 0) {
+        return nil;
+    }
+
+    const char *public_key = publicKey.UTF8String;
+    const char *private_key = privateKey.UTF8String; // 私钥
+    EC_GROUP *group = EC_GROUP_new_by_curve_name(kDefaultEllipticCurveType); // 椭圆曲线
+
+    EC_POINT *pub_point = NULL;  // 公钥
+    BIGNUM *pri_big_num = NULL; // 私钥
+    EC_KEY *key = NULL;  // 密钥结构体
+    NSString *ecdhStr = nil; // 协商出的密钥字符
+
+    do {
+        // 公钥转换为 EC_POINT
+        pub_point = EC_POINT_new(group);
+        EC_POINT_hex2point(group, public_key, pub_point, NULL);
+        // 私钥转换为 BIGNUM 并存储在 EC_KEY 中
+        if (!BN_hex2bn(&pri_big_num, private_key)) {
+            break;
+        }
+        key = EC_KEY_new();
+        if (!EC_KEY_set_group(key, group)) {
+            break;
+        }
+        if (!EC_KEY_set_private_key(key, pri_big_num)) {
+            break;
+        }
+
+        size_t outlen = 32;
+        uint8_t *ecdh_text = (uint8_t *)OPENSSL_zalloc(outlen + 1);
+        int ret = ECDH_compute_key(ecdh_text, outlen, pub_point, key, 0);
+        if (ret <= 0) {
+            break;
+        }
+        NSData *ecdhData = [NSData dataWithBytes:ecdh_text length:outlen];
+        ecdhStr = [DBChainGMUtils dataToHex:ecdhData];
+
+        OPENSSL_free(ecdh_text);
+    } while (NO);
+
+    if (group != NULL) EC_GROUP_free(group);
+    EC_POINT_free(pub_point);
+    BN_free(pri_big_num);
+    EC_KEY_free(key);
+
+    return ecdhStr;
+}
 
 /// BIGNUM 转 Hex 时，不足 64 位前面补 0
 /// @param orginHex 原 Hex 字符串
