@@ -1,0 +1,6 @@
+framework module Pods_Sm2FrameworkDemo_Sm2FrameworkDemoUITests {
+  umbrella header "Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
