@@ -32,9 +32,6 @@
 		810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */; };
 		810EFFB0270400F000F51CEC /* DBChainSm2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */; };
 		81F2148F2711628900815526 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F214872711626600815526 /* openssl.framework */; };
-		81F214B627116AA000815526 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 81F214B327116AA000815526 /* LICENSE */; };
-		81F214B727116AA000815526 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 81F214B427116AA000815526 /* README.md */; };
-		81F214B827116AA000815526 /* DBChainSm2.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 81F214B527116AA000815526 /* DBChainSm2.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +59,6 @@
 		810EFFAF270400F000F51CEC /* DBChainSm2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainSm2Tests.m; sourceTree = "<group>"; };
 		810EFFB1270400F000F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81F214872711626600815526 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
-		81F214B327116AA000815526 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		81F214B427116AA000815526 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		81F214B527116AA000815526 /* DBChainSm2.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DBChainSm2.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +110,6 @@
 		810EFFA3270400F000F51CEC /* DBChainSm2 */ = {
 			isa = PBXGroup;
 			children = (
-				81F214B527116AA000815526 /* DBChainSm2.podspec */,
-				81F214B327116AA000815526 /* LICENSE */,
-				81F214B427116AA000815526 /* README.md */,
 				81F214872711626600815526 /* openssl.framework */,
 				810EFFA4270400F000F51CEC /* DBChainSm2.h */,
 				810E004A2704154300F51CEC /* DBChainGMObjcDef.h */,
@@ -240,9 +231,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81F214B727116AA000815526 /* README.md in Resources */,
-				81F214B827116AA000815526 /* DBChainSm2.podspec in Resources */,
-				81F214B627116AA000815526 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +426,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 armv7 i386";
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 i386";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",
