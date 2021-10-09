@@ -18,8 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.redColor;
-    NSLog(@"hahahaha");
-    
+
+
+    NSArray *arr = [DBChainGMSm2Utils createKeyPairCompress:YES];
+
+    NSLog(@"公私钥对: %@",arr);
 
 };
 

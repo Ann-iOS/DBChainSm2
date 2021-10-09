@@ -304,6 +304,58 @@ static int kDefaultEllipticCurveType = NID_sm2;
 }
 
 ///MARK: - SM2 解密
+//+ (nullable NSData *)deData:(NSData *)cipherData hexPriKey:(NSString *)hexPriKey{
+//    uint8_t *cipher_bytes = (uint8_t *)cipherData.bytes; // 明文
+//    const char *private_key = hexPriKey.UTF8String; // 私钥
+//    size_t ctext_len = cipherData.length;
+//
+//    const EVP_MD *digest = EVP_sm3(); // 摘要算法
+//    EC_GROUP *group = EC_GROUP_new_by_curve_name(kDefaultEllipticCurveType); // 椭圆曲线
+//    BIGNUM *pri_big_num = NULL; // 私钥
+//    EC_KEY *key = NULL; // 密钥对
+//    EC_POINT *pub_point = NULL; // 坐标
+//    uint8_t *plaintext = NULL; // 明文
+//    NSData *plainData = nil; // 明文
+//
+//    do {
+//        if (!BN_hex2bn(&pri_big_num, private_key)) {
+//            break;
+//        }
+//        key = EC_KEY_new();
+//        if (!EC_KEY_set_group(key, group)) {
+//            break;
+//        }
+//        if (!EC_KEY_set_private_key(key, pri_big_num)) {
+//            break;
+//        }
+//
+//        size_t ptext_len = 0;
+//
+////        if (!sm2_plaintext_size(cipher_bytes, ctext_len, &ptext_len)) {
+////            break;
+////        }
+////
+//////        if (!sm2_plaintext_size(key, digest, ctext_len, &ptext_len)) {
+//////            break;
+//////        }
+//
+//        plaintext = (uint8_t *)OPENSSL_zalloc(ptext_len);
+//        if (!sm2_decrypt(key, digest, cipher_bytes, ctext_len, plaintext, &ptext_len)) {
+//            break;
+//        }
+//        plainData = [NSData dataWithBytes:plaintext length:ptext_len];
+//    } while (NO);
+//
+//    if (group != NULL) EC_GROUP_free(group);
+//    EC_POINT_free(pub_point);
+//    OPENSSL_free(plaintext);
+//    BN_free(pri_big_num);
+//    EC_KEY_free(key);
+//
+//    return plainData;
+//}
+
+///MARK: - SM2 解密
 + (nullable NSData *)deData:(NSData *)cipherData hexPriKey:(NSString *)hexPriKey{
     uint8_t *cipher_bytes = (uint8_t *)cipherData.bytes; // 明文
     const char *private_key = hexPriKey.UTF8String; // 私钥
@@ -330,15 +382,10 @@ static int kDefaultEllipticCurveType = NID_sm2;
         }
 
         size_t ptext_len = 0;
-        if (!sm2_plaintext_size(key, digest, ctext_len, &ptext_len)) {
+        if (!sm2_plaintext_size(cipher_bytes, ctext_len, &ptext_len)) {
             break;
         }
 
-//        // int sm2_plaintext_size(const EC_KEY *key, const EVP_MD *digest, size_t msg_len,
-//        // size_t *pt_size);
-//        if (!sm2_plaintext_size) {
-//            <#statements#>
-//        }
         plaintext = (uint8_t *)OPENSSL_zalloc(ptext_len);
         if (!sm2_decrypt(key, digest, cipher_bytes, ctext_len, plaintext, &ptext_len)) {
             break;
@@ -354,6 +401,9 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
     return plainData;
 }
+
+
+
 
 // 解密密文，返回普通字符串
 + (nullable NSString *)decryptToText:(NSString *)ciphertext privateKey:(NSString *)privateKey{
