@@ -416,7 +416,7 @@
 			buildSettings = {
 				ARCHS = (
 					"$(ARCHS_STANDARD)",
-					x86_64,
+					armv7s,
 				);
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
@@ -426,7 +426,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EXCLUDED_ARCHS = "";
-				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 i386";
+				"EXCLUDED_ARCHS[sdk=*]" = "arm64 armv7 i386 x86_64 armv7s";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",
@@ -452,6 +452,10 @@
 		810EFFB7270400F000F51CEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					armv7s,
+				);
 				CODE_SIGN_STYLE = Automatic;
 				DEAD_CODE_STRIPPING = NO;
 				DEFINES_MODULE = YES;
