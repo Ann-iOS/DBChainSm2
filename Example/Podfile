@@ -4,19 +4,21 @@ target 'Sm2FrameworkDemo' do
 
   use_frameworks!
 
-   pod 'DBChainSm2', :path => '../'
+   pod 'DBChainSm2'
+   #pod 'DBChainSm2', :path => '../'
+
    pod 'CryptoSwift'
 
   target 'Sm2FrameworkDemoTests' do
     inherit! :search_paths
-    # Pods for testing
-    pod 'DBChainSm2', :path => '../'
+    pod 'DBChainSm2'
+#    pod 'DBChainSm2', :path => '../'
     pod 'CryptoSwift'
   end
 
   target 'Sm2FrameworkDemoUITests' do
-    # Pods for testing
-    pod 'DBChainSm2', :path => '../'
+    pod 'DBChainSm2'
+#    pod 'DBChainSm2', :path => '../'
     pod 'CryptoSwift'
   end
 
