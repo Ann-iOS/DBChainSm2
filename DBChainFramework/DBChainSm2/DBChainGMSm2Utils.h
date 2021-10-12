@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 创建 SM2 公私钥（基于官方文档 NID_sm2 推荐曲线）。返回值：数组元素 1 为公钥，2 为私钥
 + (NSArray<NSString *> *)createKeyPair;
 + (NSArray<NSString *> *)createKeyPairCompress:(BOOL)isCompress;
+/// 通过私钥 获取 公钥.  私钥必须为 64 位
++ (NSString *)adoptPrivatekeyGetPublicKey:(NSString *)privateKey isCompress:(BOOL)iscompress;
 
 ///MARK: - SM2 加密
 /// SM2 加密。返回值：加密后的字符串或 NSData（密文都为 ASN1 编码格式，可解码为 C1C3C2 格式），失败返回 nil

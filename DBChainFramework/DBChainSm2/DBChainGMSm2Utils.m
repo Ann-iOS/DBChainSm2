@@ -177,7 +177,6 @@ static int kDefaultEllipticCurveType = NID_sm2;
     return keyArray;
 }
 
-
 ///随机公私钥.  公钥 未压缩形式
 + (NSArray<NSString *> *)createKeyPair{
     NSArray<NSString *> *keyArray = @[@"", @""];
@@ -223,6 +222,105 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
     return keyArray;
 }
+
+
++ (NSString *)adoptPrivatekeyGetPublicKey:(NSString *)privateKey isCompress:(BOOL)iscompress {
+    if (privateKey.length != 64) {
+        return  @"";
+    }
+    //设置EC_键对象的EC_组
+    EC_GROUP *group = EC_GROUP_new_by_curve_name(kDefaultEllipticCurveType);
+    EC_KEY *key = EC_KEY_new(); // 密钥对
+    BIGNUM *pri_num = NULL;  // 私钥
+    EC_POINT *pub_point = NULL; // 公钥坐标
+    NSString *priKey = @"BA6BED6BED446AB93963E87CDABE6390A606E28F4185912B53BE4CE143CAE499";
+    const char *private_key = priKey.UTF8String;
+
+    BIGNUM *p, *a, *b, *gx, *gy, *z;
+    p = BN_new();
+    a = BN_new();
+    b = BN_new();
+
+    gx = BN_new();
+    gy = BN_new();
+    z = BN_new();
+
+    NSString *newCompressPublicKey;
+
+    if (!BN_hex2bn(&pri_num, private_key)) {
+//        break; // 私钥转 BIGNUM
+        NSLog(@"私钥转 BIGNUM 失败");
+        return  @"";
+    }
+    if (!EC_KEY_set_group(key, group)) {
+//        break;
+        NSLog(@"设置EC_键对象的EC_组 失败");
+        return  @"";
+    }
+
+    if (!EC_KEY_set_private_key(key, pri_num)) {
+//        break; // 设置私钥
+        NSLog(@"设置私钥 失败");
+        return  @"";
+    }
+
+    pub_point = EC_POINT_new(group);
+
+
+    if (!EC_POINT_mul(group, pub_point, pri_num, NULL, NULL, NULL)) {
+//        break; // 私钥算出公钥
+        NSLog(@"私钥算出公钥 失败");
+        return  @"";
+    }
+
+    if (!EC_KEY_set_public_key(key, pub_point)) {
+//        break; // 设置公钥
+        NSLog(@"设置公钥 失败");
+        return  @"";
+    }
+
+    const EC_POINT *pubkey = EC_KEY_get0_public_key(key);
+
+
+    if(!EC_POINT_get_affine_coordinates_GFp(group, pubkey, gx, gy , NULL))
+    {
+        printf("公钥分割错误");
+        return  @"";
+    }
+
+    printf("\ngx is: %s\n", BN_bn2hex(gx));
+    printf("gy is: %s\n", BN_bn2hex(gy));
+
+    char *pubGx = BN_bn2hex(gx);
+    NSString *publicKey_xStr = [NSString stringWithCString:pubGx encoding:NSUTF8StringEncoding];
+
+    NSString *publicKey_yStr = [NSString stringWithCString:BN_bn2hex(gy) encoding:NSUTF8StringEncoding];
+    NSString *endStr = [publicKey_yStr substringFromIndex:publicKey_yStr.length - 2]; //字符串结束
+
+    NSLog(@"结尾字符串: %@",endStr);
+
+    long hexPub = strtoul(endStr.UTF8String, 0, 16);
+//    NSLog(@"十六进制转二进制: %lu",hexPub);
+
+    /// 判断奇偶数
+    if (hexPub % 2 == 0) {
+        newCompressPublicKey = [NSString stringWithFormat:@"02%@",publicKey_xStr];
+    } else {
+        newCompressPublicKey = [NSString stringWithFormat:@"03%@",publicKey_xStr];
+    }
+
+//    NSLog(@"压缩公钥 : %@",newCompressPublicKey);
+    if (iscompress == YES) {
+        return  newCompressPublicKey;
+    }
+    char *hex_pub = EC_POINT_point2hex(group, pubkey, EC_KEY_get_conv_form(key), NULL);
+    NSString *pubHex = [NSString stringWithCString:hex_pub encoding:NSUTF8StringEncoding];
+    NSLog(@"生成公钥的Hex格式是: %@",pubHex);
+
+    return pubHex;
+}
+
+
 
 
 ///MARK: - SM2 加密
