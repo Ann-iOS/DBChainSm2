@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		810E009127043CC600F51CEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E009027043CC600F51CEC /* main.m */; };
 		810E009B27043CC700F51CEC /* Sm2FrameworkDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E009A27043CC700F51CEC /* Sm2FrameworkDemoTests.m */; };
 		810E00A627043CC700F51CEC /* Sm2FrameworkDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E00A527043CC700F51CEC /* Sm2FrameworkDemoUITests.m */; };
+		816B32622715349A00AED81F /* Bech32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B325F2715349A00AED81F /* Bech32.swift */; };
+		816B32632715349A00AED81F /* ChainType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B32602715349A00AED81F /* ChainType.swift */; };
+		816B32642715349A00AED81F /* SegwitAddrCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B32612715349A00AED81F /* SegwitAddrCoder.swift */; };
 		8198E9AD270FF24400C6DE85 /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8198E9AC270FF24400C6DE85 /* DBChainSm2.framework */; };
 		858C4971309A0E1506BC905E /* Pods_Sm2FrameworkDemo_Sm2FrameworkDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1693683BD390888034DA47DF /* Pods_Sm2FrameworkDemo_Sm2FrameworkDemoUITests.framework */; };
 		97E653BEC97039671F98A093 /* Pods_Sm2FrameworkDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19D3F5E611845A7E35DD35B /* Pods_Sm2FrameworkDemoTests.framework */; };
@@ -64,6 +67,10 @@
 		810E00A127043CC700F51CEC /* Sm2FrameworkDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sm2FrameworkDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		810E00A527043CC700F51CEC /* Sm2FrameworkDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sm2FrameworkDemoUITests.m; sourceTree = "<group>"; };
 		810E00A727043CC700F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		816B325E2715349A00AED81F /* Sm2FrameworkDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sm2FrameworkDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		816B325F2715349A00AED81F /* Bech32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bech32.swift; sourceTree = "<group>"; };
+		816B32602715349A00AED81F /* ChainType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainType.swift; sourceTree = "<group>"; };
+		816B32612715349A00AED81F /* SegwitAddrCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegwitAddrCoder.swift; sourceTree = "<group>"; };
 		8198E9AC270FF24400C6DE85 /* DBChainSm2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DBChainSm2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE15CFC64321C7D811B17F15 /* Pods-Sm2FrameworkDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sm2FrameworkDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-Sm2FrameworkDemoTests/Pods-Sm2FrameworkDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CA8221449C9EE516E5EF71AC /* Pods_Sm2FrameworkDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sm2FrameworkDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +155,9 @@
 		810E007D27043CBE00F51CEC /* Sm2FrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				816B325F2715349A00AED81F /* Bech32.swift */,
+				816B32602715349A00AED81F /* ChainType.swift */,
+				816B32612715349A00AED81F /* SegwitAddrCoder.swift */,
 				810E007E27043CBE00F51CEC /* AppDelegate.h */,
 				810E007F27043CBE00F51CEC /* AppDelegate.m */,
 				810E008127043CBE00F51CEC /* SceneDelegate.h */,
@@ -159,6 +169,7 @@
 				810E008C27043CC600F51CEC /* LaunchScreen.storyboard */,
 				810E008F27043CC600F51CEC /* Info.plist */,
 				810E009027043CC600F51CEC /* main.m */,
+				816B325E2715349A00AED81F /* Sm2FrameworkDemo-Bridging-Header.h */,
 			);
 			path = Sm2FrameworkDemo;
 			sourceTree = "<group>";
@@ -192,7 +203,6 @@
 				810E007727043CBE00F51CEC /* Sources */,
 				810E007827043CBE00F51CEC /* Frameworks */,
 				810E007927043CBE00F51CEC /* Resources */,
-				4ABF368EFF5A460A638D8678 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -211,7 +221,6 @@
 				810E009227043CC700F51CEC /* Sources */,
 				810E009327043CC700F51CEC /* Frameworks */,
 				810E009427043CC700F51CEC /* Resources */,
-				653875383CBC3DF9A2D4BEDD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -231,7 +240,6 @@
 				810E009D27043CC700F51CEC /* Sources */,
 				810E009E27043CC700F51CEC /* Frameworks */,
 				810E009F27043CC700F51CEC /* Resources */,
-				262963B1BBD84F3DAEA13559 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +261,7 @@
 				TargetAttributes = {
 					810E007A27043CBE00F51CEC = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					810E009527043CC700F51CEC = {
 						CreatedOnToolsVersion = 12.2;
@@ -312,40 +321,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		262963B1BBD84F3DAEA13559 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests/Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4ABF368EFF5A460A638D8678 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo/Pods-Sm2FrameworkDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo/Pods-Sm2FrameworkDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemo/Pods-Sm2FrameworkDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		55B4219AB921AFE47AF81CDA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -366,23 +341,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		653875383CBC3DF9A2D4BEDD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemoTests/Pods-Sm2FrameworkDemoTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemoTests/Pods-Sm2FrameworkDemoTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sm2FrameworkDemoTests/Pods-Sm2FrameworkDemoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8AD903DACF6036A834403F3 /* [CP] Check Pods Manifest.lock */ = {
@@ -437,7 +395,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				810E008627043CBE00F51CEC /* ViewController.m in Sources */,
+				816B32632715349A00AED81F /* ChainType.swift in Sources */,
 				810E008027043CBE00F51CEC /* AppDelegate.m in Sources */,
+				816B32622715349A00AED81F /* Bech32.swift in Sources */,
+				816B32642715349A00AED81F /* SegwitAddrCoder.swift in Sources */,
 				810E009127043CC600F51CEC /* main.m in Sources */,
 				810E008327043CBE00F51CEC /* SceneDelegate.m in Sources */,
 			);
@@ -612,6 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -624,6 +586,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dzh.com.Sm2FrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sm2FrameworkDemo/Sm2FrameworkDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -634,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -645,6 +611,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dzh.com.Sm2FrameworkDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sm2FrameworkDemo/Sm2FrameworkDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -653,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE15CFC64321C7D811B17F15 /* Pods-Sm2FrameworkDemoTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
@@ -674,6 +643,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2ED28CB5C3BF99FA46330523 /* Pods-Sm2FrameworkDemoTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
@@ -695,6 +665,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 75F18BB721F386459EBED3A2 /* Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
 				INFOPLIST_FILE = Sm2FrameworkDemoUITests/Info.plist;
@@ -714,6 +685,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2864BCFFA371062E112105FE /* Pods-Sm2FrameworkDemo-Sm2FrameworkDemoUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4654J23WVM;
 				INFOPLIST_FILE = Sm2FrameworkDemoUITests/Info.plist;

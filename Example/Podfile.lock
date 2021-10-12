@@ -1,24 +1,23 @@
 PODS:
-  - CryptoSwift (1.4.2)
   - DBChainSm2 (1.0.0):
     - GMOpenSSL
   - GMOpenSSL (2.2.6)
 
 DEPENDENCIES:
-  - CryptoSwift
-  - DBChainSm2
+  - DBChainSm2 (from `../`)
 
 SPEC REPOS:
   trunk:
-    - CryptoSwift
-    - DBChainSm2
     - GMOpenSSL
 
+EXTERNAL SOURCES:
+  DBChainSm2:
+    :path: "../"
+
 SPEC CHECKSUMS:
-  CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
   DBChainSm2: c253b79bf6e4378c196a538aafb95c730e96a9d0
   GMOpenSSL: 9a58d4bbae233579275605fb65f7d92fb01f3c06
 
-PODFILE CHECKSUM: ce1938dcb8a7a5ec71f9f59144d2410a019d0834
+PODFILE CHECKSUM: f9ccea658e3a0676983e35872beae999cc56a5bd
 
 COCOAPODS: 1.11.2
