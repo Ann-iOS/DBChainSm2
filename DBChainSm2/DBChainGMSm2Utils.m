@@ -284,35 +284,41 @@ static int kDefaultEllipticCurveType = NID_sm2;
         return  @"";
     }
 
-    printf("\ngx is: %s\n", BN_bn2hex(gx));
-    printf("gy is: %s\n", BN_bn2hex(gy));
+//    printf("gx is: %s\n", BN_bn2hex(gx));
+//    printf("gy is: %s\n", BN_bn2hex(gy));
 
-    char *pubGx = BN_bn2hex(gx);
-    NSString *publicKey_xStr = [NSString stringWithCString:pubGx encoding:NSUTF8StringEncoding];
-
+    NSString *publicKey_xStr = [NSString stringWithCString:BN_bn2hex(gx) encoding:NSUTF8StringEncoding];
     NSString *publicKey_yStr = [NSString stringWithCString:BN_bn2hex(gy) encoding:NSUTF8StringEncoding];
+
+    // 不足64位时前面补0
+    NSString *paddingX = [self bnToHexPadding:publicKey_xStr];
+//    NSString *paddingY = [self bnToHexPadding:publicKey_yStr];
+
+//    NSLog(@"公钥补位:X: %@\nY:%@",paddingX,paddingY);
+
+    // 判断 Y 的结尾字符
     NSString *endStr = [publicKey_yStr substringFromIndex:publicKey_yStr.length - 2]; //字符串结束
-
-    NSLog(@"结尾字符串: %@",endStr);
-
     long hexPub = strtoul(endStr.UTF8String, 0, 16);
 
     /// 判断奇偶数
     if (hexPub % 2 == 0) {
-        newCompressPublicKey = [NSString stringWithFormat:@"02%@",publicKey_xStr];
+        newCompressPublicKey = [NSString stringWithFormat:@"02%@",paddingX];
     } else {
-        newCompressPublicKey = [NSString stringWithFormat:@"03%@",publicKey_xStr];
+        newCompressPublicKey = [NSString stringWithFormat:@"03%@",paddingX];
     }
+
     NSLog(@"压缩公钥 : %@",newCompressPublicKey);
-    if (iscompress == YES) {
-        return  newCompressPublicKey;
-    }
+
     char *hex_pub = EC_POINT_point2hex(group, pubkey, EC_KEY_get_conv_form(key), NULL);
     NSString *pubHex = [NSString stringWithCString:hex_pub encoding:NSUTF8StringEncoding];
     NSLog(@"生成公钥的Hex格式是: %@",pubHex);
+
+    if (iscompress == YES) {
+        return  newCompressPublicKey;
+    }
+
     return pubHex;
 }
-
 
 ///MARK: - SM2 加密
 
