@@ -34,6 +34,8 @@ extension StringProtocol {
     case BAND_MAIN
     case SECRET_MAIN
 
+    case DBCHAIN_MAIN
+
     case BINANCE_TEST
     case KAVA_TEST
     case IOV_TEST
@@ -49,6 +51,8 @@ extension StringProtocol {
         result.append(KAVA_MAIN)
         result.append(BAND_MAIN)
         result.append(SECRET_MAIN)
+
+        result.append(DBCHAIN_MAIN)
 
 //        result.append(BINANCE_TEST)
 //        result.append(KAVA_TEST)
@@ -86,6 +90,8 @@ open class Address: NSObject {
         let ripemd160 = Data(shaArr)
        if (chain == ChainType.COSMOS_MAIN) {
            result = try! SegwitAddrCoder.shared.encode2(hrp: "cosmos", program: ripemd160)
+       } else if (chain == ChainType.DBCHAIN_MAIN) {
+        result = try! SegwitAddrCoder.shared.encode2(hrp: "dbchain", program: ripemd160)
        } else if (chain == ChainType.IRIS_MAIN) {
            result = try! SegwitAddrCoder.shared.encode2(hrp: "iaa", program: ripemd160)
        } else if (chain == ChainType.BINANCE_MAIN) {

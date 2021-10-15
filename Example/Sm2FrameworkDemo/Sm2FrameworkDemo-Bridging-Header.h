@@ -3,3 +3,4 @@
 //
 
 #import "DBChainSm2/DBChainSm2.h"
+#import "Sm2FrameworkDemo-Swift.h"

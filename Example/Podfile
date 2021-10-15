@@ -7,6 +7,14 @@ target 'Sm2FrameworkDemo' do
 #   pod 'DBChainSm2'
    pod 'DBChainSm2', :path => '../'
 
+#   pod 'HDWalletKit', :git => 'https://github.com/essentiaone/HDWallet.git'
+
+#   pod 'HDWalletKit'
+#   pod 'HDWalletKit'
+
+
+#   , :git => 'https://github.com/vandyshev/HDWalletKit.git'
+   
 #   pod 'CryptoSwift'
 
   target 'Sm2FrameworkDemoTests' do
