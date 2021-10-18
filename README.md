@@ -40,11 +40,22 @@ pod 'DBChainSm2'
 然后执行 `pod install` 即可。
 DBChainSm2 同 GMObjC 一样 依赖 OpenSSL 1.1.1 以上版本，CocoaPods 不支持依赖同一静态库库的不同版本，如果遇到与三方库的 OpenSSL 冲突，例如百度地图（BaiduMapKit）依赖了低版本的 OpenSSL 静态库，会产生依赖冲突。
 
+### Swift Package Manager
+
+`DBChainSm2`   `dev` 分支 支持 SPM。要使用SPM，您应该使用Xcode 11打开项目。单击文件->Swift程序包->添加程序包依赖项，输入DBChainSm2 repo的URL。或者，您可以使用GitHub帐户登录Xcode，只需键入`DBChainSm2`即可进行搜索。
+选择包后，`Rules` 必须选择 `Branch` ,然后输入 `dev` 的方式引入。SPM 暂不支持版本号 `version` 的方式引入 , 然后Xcode会为你设置所有的东西。
+如果您是框架作者并使用 `DBChainSm2` 作为依赖项，请更新您的Package.swift文件：
+```ruby
+dependencies: [
+    .package(name: "DBChainSm2", url: "https://github.com/Ann-iOS/DBChainSm2.git", .branch("dev")),
+    ],
+```
+
 OpenSSL 冲突常见解决办法：
 
 将三方库使用 OpenSSL 升级为 1.1.1 以上版本，DBChainSm2 同 [GMObjC](https://github.com/muzipiao/GMObjC) 直接共用此 OpenSSL 库，不需要再为 DBChainSm2 单独增加 OpenSSL 依赖库，手动集成 DBChainSm2 或者  [GMObjC](https://github.com/muzipiao/GMObjC)  即可；
 
-方法2：将 DBChainSm2 或者 GMObjC 编译为动态库可解决此类冲突。通过 Carthage 自动将 GMObjC 编译动态库，具体操作需移步[GMObjC](https://github.com/muzipiao/GMObjC) 。DBChainSm2 暂时只实现 pod 导入的方式
+方法2：将 DBChainSm2 或者 GMObjC 编译为动态库可解决此类冲突。通过 Carthage 自动将 GMObjC 编译动态库，具体操作需移步[GMObjC](https://github.com/muzipiao/GMObjC) 。DBChainSm2 暂时只实现 pod 与 SPM --> Branch -> dev 的导入方式
 
 ### 直接集成
 
