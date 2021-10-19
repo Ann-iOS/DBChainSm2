@@ -1,5 +1,5 @@
 PODS:
-  - DBChainSm2 (2.0.0):
+  - DBChainSm2 (2.0.1):
     - GMOpenSSL
   - GMOpenSSL (2.2.6)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DBChainSm2: 346b41d14d20c5f21423b10e892da6eff2ed3174
+  DBChainSm2: a1e75671886b63dc9704498fd1bc3ae13bed6748
   GMOpenSSL: 9a58d4bbae233579275605fb65f7d92fb01f3c06
 
 PODFILE CHECKSUM: f9ccea658e3a0676983e35872beae999cc56a5bd
