@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "DBChainSm2/DBChainSm2.h"
-
 #import "Sm2FrameworkDemo-Swift.h"
 
 @interface ViewController ()
@@ -21,7 +20,6 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = UIColor.redColor;
 
-
     NSArray *arr = [DBChainGMSm2Utils createKeyPairCompress:YES];
     NSLog(@"公私钥对: %@",arr);
 
@@ -34,6 +32,9 @@
 
     NSString *addressStr = [address sm2GetPubToDpAddress:publicData :ChainTypeCOSMOS_MAIN];
     NSLog(@"固定私钥得出公钥:%@,\n地址:%@",pubkey,addressStr);
+
+    NSString *dbchainStr = [address sm2GetPubToDpAddress:publicData :ChainTypeDBCHAIN_MAIN];
+    NSLog(@"DBChain -- 固定私钥得出公钥:%@,\n地址:%@",pubkey,dbchainStr);
 
 
 };

@@ -50,16 +50,24 @@ dependencies: [
     .package(name: "DBChainSm2", url: "https://github.com/Ann-iOS/DBChainSm2.git", .branch("dev")),
     ],
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 OpenSSL 冲突常见解决办法：
 
-将三方库使用 OpenSSL 升级为 1.1.1 以上版本，DBChainSm2 同 [GMObjC](https://github.com/muzipiao/GMObjC) 直接共用此 OpenSSL 库，不需要再为 DBChainSm2 单独增加 OpenSSL 依赖库，手动集成 DBChainSm2 或者  [GMObjC](https://github.com/muzipiao/GMObjC)  即可；
+方法1: 将三方库使用 OpenSSL 升级为 1.1.1 以上版本，DBChainSm2 同 [GMObjC](https://github.com/muzipiao/GMObjC) 直接共用此 OpenSSL 库，不需要再为 DBChainSm2 单独增加 OpenSSL 依赖库，手动集成 DBChainSm2 或者  [GMObjC](https://github.com/muzipiao/GMObjC)  即可；
 
 方法2：将 DBChainSm2 或者 GMObjC 编译为动态库可解决此类冲突。通过 Carthage 自动将 GMObjC 编译动态库，具体操作需移步[GMObjC](https://github.com/muzipiao/GMObjC) 。DBChainSm2 暂时只实现 pod 与 SPM --> Branch -> dev 的导入方式
 
 ### 可能遇到的编译错误 
 
 不支持 armv7 架构, 请在 `Build Settings - Excluded Architectures` 下添加 `Any SDK` 输入 `armv7`, 将其排除. 
+
+### 可能遇到的编译错误 
+
+不支持 armv7 架构, 请在 `Build Settings - Excluded Architectures` 下添加 `Any SDK` 输入 `armv7`, 将其排除. 
+
 
 ### 直接集成
 

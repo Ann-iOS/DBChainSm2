@@ -120,13 +120,19 @@ static int kDefaultEllipticCurveType = NID_sm2;
         {
             printf("公钥分割错误");
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
         char *pubGx = BN_bn2hex(gx);
         NSString *publicKey_xStr = [NSString stringWithCString:pubGx encoding:NSUTF8StringEncoding];
 
         NSString *publicKey_yStr = [NSString stringWithCString:BN_bn2hex(gy) encoding:NSUTF8StringEncoding];
         NSString *endStr = [publicKey_yStr substringFromIndex:publicKey_yStr.length - 2]; //字符串结束
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
         long hexPub = strtoul(endStr.UTF8String, 0, 16);
 
         /// 判断奇偶数
@@ -138,7 +144,10 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
         char *hex_pub = EC_POINT_point2hex(group, pub_key, EC_KEY_get_conv_form(key), NULL);
         NSString *pubHex = [NSString stringWithCString:hex_pub encoding:NSUTF8StringEncoding];
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
         /// 私钥《Возьми сердце моё》中文版
         const BIGNUM *pri_key = EC_KEY_get0_private_key(key);
         char *hex_pri = BN_bn2hex(pri_key);
@@ -268,6 +277,7 @@ static int kDefaultEllipticCurveType = NID_sm2;
         return  @"";
     }
 
+<<<<<<< HEAD
     NSString *publicKey_xStr = [NSString stringWithCString:BN_bn2hex(gx) encoding:NSUTF8StringEncoding];
     NSString *publicKey_yStr = [NSString stringWithCString:BN_bn2hex(gy) encoding:NSUTF8StringEncoding];
 
@@ -275,6 +285,14 @@ static int kDefaultEllipticCurveType = NID_sm2;
     NSString *paddingX = [self bnToHexPadding:publicKey_xStr];
     // 判断 Y 的结尾字符
     NSString *endStr = [publicKey_yStr substringFromIndex:publicKey_yStr.length - 2]; //字符串结束
+=======
+    char *pubGx = BN_bn2hex(gx);
+    NSString *publicKey_xStr = [NSString stringWithCString:pubGx encoding:NSUTF8StringEncoding];
+
+    NSString *publicKey_yStr = [NSString stringWithCString:BN_bn2hex(gy) encoding:NSUTF8StringEncoding];
+    NSString *endStr = [publicKey_yStr substringFromIndex:publicKey_yStr.length - 2]; //字符串结束
+
+>>>>>>> dev
     long hexPub = strtoul(endStr.UTF8String, 0, 16);
 
     /// 判断奇偶数
@@ -284,12 +302,20 @@ static int kDefaultEllipticCurveType = NID_sm2;
         newCompressPublicKey = [NSString stringWithFormat:@"03%@",paddingX];
     }
 
+<<<<<<< HEAD
     char *hex_pub = EC_POINT_point2hex(group, pubkey, EC_KEY_get_conv_form(key), NULL);
     NSString *pubHex = [NSString stringWithCString:hex_pub encoding:NSUTF8StringEncoding];
 
     if (iscompress == YES) {
         return  newCompressPublicKey;
     }
+=======
+    if (iscompress == YES) {
+        return  newCompressPublicKey;
+    }
+    char *hex_pub = EC_POINT_point2hex(group, pubkey, EC_KEY_get_conv_form(key), NULL);
+    NSString *pubHex = [NSString stringWithCString:hex_pub encoding:NSUTF8StringEncoding];
+>>>>>>> dev
 
     return pubHex;
 }

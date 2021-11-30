@@ -28,6 +28,29 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+<<<<<<< HEAD
+=======
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "810E009527043CC700F51CEC"
+               BuildableName = "Sm2FrameworkDemoTests.xctest"
+               BlueprintName = "Sm2FrameworkDemoTests"
+               ReferencedContainer = "container:Sm2FrameworkDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "810E00A027043CC700F51CEC"
+               BuildableName = "Sm2FrameworkDemoUITests.xctest"
+               BlueprintName = "Sm2FrameworkDemoUITests"
+               ReferencedContainer = "container:Sm2FrameworkDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+>>>>>>> dev
       </Testables>
    </TestAction>
    <LaunchAction
