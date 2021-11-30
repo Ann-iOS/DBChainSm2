@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,11 +15,7 @@
 		810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; settings = {ATTRIBUTES = (Public, ); }; };
-<<<<<<< HEAD:DBChainFramework/DBChainSm2.xcodeproj/project.pbxproj
-		81F2148F2711628900815526 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F214872711626600815526 /* openssl.framework */; };
-=======
-		81DD794F271829280036AFAC /* openssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DD794E2718291F0036AFAC /* openssl.xcframework */; };
->>>>>>> dev:DBChainSm2.xcodeproj/project.pbxproj
+		818C8C302756017C000C77D4 /* openssl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 818C8C2F2756017C000C77D4 /* openssl.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +28,7 @@
 		810E0050270415BE00F51CEC /* DBChainGMSm2Bio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainGMSm2Bio.m; sourceTree = "<group>"; };
 		810EFFA1270400F000F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DBChainSm2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		810EFFA4270400F000F51CEC /* DBChainSm2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainSm2.h; sourceTree = "<group>"; };
-<<<<<<< HEAD:DBChainFramework/DBChainSm2.xcodeproj/project.pbxproj
-		810EFFA5270400F000F51CEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81F214872711626600815526 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = "<group>"; };
-=======
-		81DD794E2718291F0036AFAC /* openssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = openssl.xcframework; sourceTree = "<group>"; };
->>>>>>> dev:DBChainSm2.xcodeproj/project.pbxproj
+		818C8C2F2756017C000C77D4 /* openssl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openssl.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,11 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD:DBChainFramework/DBChainSm2.xcodeproj/project.pbxproj
-				81F2148F2711628900815526 /* openssl.framework in Frameworks */,
-=======
-				81DD794F271829280036AFAC /* openssl.xcframework in Frameworks */,
->>>>>>> dev:DBChainSm2.xcodeproj/project.pbxproj
+				818C8C302756017C000C77D4 /* openssl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +48,6 @@
 			children = (
 				810EFFA3270400F000F51CEC /* DBChainSm2 */,
 				810EFFA2270400F000F51CEC /* Products */,
-				81DD794D2718291F0036AFAC /* XCFrameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +62,7 @@
 		810EFFA3270400F000F51CEC /* DBChainSm2 */ = {
 			isa = PBXGroup;
 			children = (
+				818C8C2F2756017C000C77D4 /* openssl.framework */,
 				810EFFA4270400F000F51CEC /* DBChainSm2.h */,
 				810E004A2704154300F51CEC /* DBChainGMObjcDef.h */,
 				810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */,
@@ -88,17 +75,6 @@
 			path = DBChainSm2;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD:DBChainFramework/DBChainSm2.xcodeproj/project.pbxproj
-=======
-		81DD794D2718291F0036AFAC /* XCFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				81DD794E2718291F0036AFAC /* openssl.xcframework */,
-			);
-			path = XCFrameworks;
-			sourceTree = "<group>";
-		};
->>>>>>> dev:DBChainSm2.xcodeproj/project.pbxproj
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -327,6 +303,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -366,6 +343,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DBChainSm2",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
