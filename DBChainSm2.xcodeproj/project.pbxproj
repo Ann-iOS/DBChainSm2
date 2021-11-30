@@ -6,20 +6,6 @@
 	objectVersion = 52;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		810EFFBD2704053C00F51CEC /* DBChainSm2Framework */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 810EFFBE2704053C00F51CEC /* Build configuration list for PBXAggregateTarget "DBChainSm2Framework" */;
-			buildPhases = (
-				810EFFC42704054F00F51CEC /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = DBChainSm2Framework;
-			productName = DBChainSm2Framework;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		810E0039270414FA00F51CEC /* DBChainGMSm2Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E0037270414FA00F51CEC /* DBChainGMSm2Utils.m */; };
 		810E00452704151600F51CEC /* DBChainGMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 810E00432704151600F51CEC /* DBChainGMUtils.m */; };
@@ -29,19 +15,8 @@
 		810E00DC27045F2700F51CEC /* DBChainGMSm2Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DD27045F2700F51CEC /* DBChainGMUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E00422704151600F51CEC /* DBChainGMUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		810E00DE27045F2700F51CEC /* DBChainGMSm2Bio.h in Headers */ = {isa = PBXBuildFile; fileRef = 810E004F270415BE00F51CEC /* DBChainGMSm2Bio.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */; };
 		81DD794F271829280036AFAC /* openssl.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81DD794E2718291F0036AFAC /* openssl.xcframework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		810EFFAC270400F000F51CEC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 810EFF98270400F000F51CEC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 810EFFA0270400F000F51CEC;
-			remoteInfo = DBChainSm2;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		810E0036270414FA00F51CEC /* DBChainGMSm2Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainGMSm2Utils.h; sourceTree = "<group>"; };
@@ -53,7 +28,6 @@
 		810E0050270415BE00F51CEC /* DBChainGMSm2Bio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBChainGMSm2Bio.m; sourceTree = "<group>"; };
 		810EFFA1270400F000F51CEC /* DBChainSm2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DBChainSm2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		810EFFA4270400F000F51CEC /* DBChainSm2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBChainSm2.h; sourceTree = "<group>"; };
-		810EFFAA270400F000F51CEC /* DBChainSm2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DBChainSm2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81DD794E2718291F0036AFAC /* openssl.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = openssl.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,14 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81DD794F271829280036AFAC /* openssl.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		810EFFA7270400F000F51CEC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				810EFFAB270400F000F51CEC /* DBChainSm2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				810EFFA1270400F000F51CEC /* DBChainSm2.framework */,
-				810EFFAA270400F000F51CEC /* DBChainSm2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,24 +119,6 @@
 			productReference = 810EFFA1270400F000F51CEC /* DBChainSm2.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		810EFFA9270400F000F51CEC /* DBChainSm2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 810EFFB8270400F000F51CEC /* Build configuration list for PBXNativeTarget "DBChainSm2Tests" */;
-			buildPhases = (
-				810EFFA6270400F000F51CEC /* Sources */,
-				810EFFA7270400F000F51CEC /* Frameworks */,
-				810EFFA8270400F000F51CEC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				810EFFAD270400F000F51CEC /* PBXTargetDependency */,
-			);
-			name = DBChainSm2Tests;
-			productName = DBChainSm2Tests;
-			productReference = 810EFFAA270400F000F51CEC /* DBChainSm2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,12 +128,6 @@
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					810EFFA0270400F000F51CEC = {
-						CreatedOnToolsVersion = 12.2;
-					};
-					810EFFA9270400F000F51CEC = {
-						CreatedOnToolsVersion = 12.2;
-					};
-					810EFFBD2704053C00F51CEC = {
 						CreatedOnToolsVersion = 12.2;
 					};
 				};
@@ -205,8 +146,6 @@
 			projectRoot = "";
 			targets = (
 				810EFFA0270400F000F51CEC /* DBChainSm2 */,
-				810EFFA9270400F000F51CEC /* DBChainSm2Tests */,
-				810EFFBD2704053C00F51CEC /* DBChainSm2Framework */,
 			);
 		};
 /* End PBXProject section */
@@ -219,34 +158,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		810EFFA8270400F000F51CEC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		810EFFC42704054F00F51CEC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n#要build的target名\nTARGET_NAME=${PROJECT_NAME}\nif [[ $1 ]]\nthen\nTARGET_NAME=$1\nfi\nUNIVERSAL_OUTPUT_FOLDER=\"${SRCROOT}/${PROJECT_NAME}/\"\n\n#创建输出目录，并删除之前的framework文件\nmkdir -p \"${UNIVERSAL_OUTPUT_FOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUT_FOLDER}/${TARGET_NAME}.framework\"\n\n#分别编译模拟器和真机的Framework\nxcodebuild -target \"${TARGET_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${TARGET_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphonesimulator BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n#拷贝framework到univer目录\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${TARGET_NAME}.framework\" \"${UNIVERSAL_OUTPUT_FOLDER}\"\n\n#合并framework，输出最终的framework到build目录\nlipo -create -output \"${UNIVERSAL_OUTPUT_FOLDER}/${TARGET_NAME}.framework/${TARGET_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${TARGET_NAME}.framework/${TARGET_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${TARGET_NAME}.framework/${TARGET_NAME}\"\n\n#删除编译之后生成的无关的配置文件\ndir_path=\"${UNIVERSAL_OUTPUT_FOLDER}/${TARGET_NAME}.framework/\"\nfor file in ls $dir_path\ndo\nif [[ ${file} =~ \".xcconfig\" ]]\nthen\nrm -f \"${dir_path}/${file}\"\nfi\ndone\n#判断build文件夹是否存在，存在则删除\nif [ -d \"${SRCROOT}/build\" ]\nthen\nrm -rf \"${SRCROOT}/build\"\nfi\nrm -rf \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos\"\n#打开合并后的文件夹\nopen \"${UNIVERSAL_OUTPUT_FOLDER}\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		810EFF9D270400F000F51CEC /* Sources */ = {
@@ -259,22 +171,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		810EFFA6270400F000F51CEC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		810EFFAD270400F000F51CEC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 810EFFA0270400F000F51CEC /* DBChainSm2 */;
-			targetProxy = 810EFFAC270400F000F51CEC /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		810EFFB3270400F000F51CEC /* Debug */ = {
@@ -472,58 +369,6 @@
 			};
 			name = Release;
 		};
-		810EFFB9270400F000F51CEC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4654J23WVM;
-				INFOPLIST_FILE = DBChainSm2Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dzh.com.DBChainSm2Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		810EFFBA270400F000F51CEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4654J23WVM;
-				INFOPLIST_FILE = DBChainSm2Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dzh.com.DBChainSm2Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		810EFFBF2704053C00F51CEC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4654J23WVM;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		810EFFC02704053C00F51CEC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4654J23WVM;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -541,24 +386,6 @@
 			buildConfigurations = (
 				810EFFB6270400F000F51CEC /* Debug */,
 				810EFFB7270400F000F51CEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		810EFFB8270400F000F51CEC /* Build configuration list for PBXNativeTarget "DBChainSm2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				810EFFB9270400F000F51CEC /* Debug */,
-				810EFFBA270400F000F51CEC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		810EFFBE2704053C00F51CEC /* Build configuration list for PBXAggregateTarget "DBChainSm2Framework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				810EFFBF2704053C00F51CEC /* Debug */,
-				810EFFC02704053C00F51CEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
