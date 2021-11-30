@@ -1,13 +1,8 @@
 Pod::Spec.new do |spec|
-
   spec.name         = "DBChainSm2"
-
-  spec.version      = "2.3.0"
+  spec.version      = "2.4.0"
 
   spec.summary      = "国密 SM2 的 OC 封装，基于 OpenSSL。"
-#  spec.description  = <<-DESC
-#  基于 OpenSSL 封装 SM2 生成密钥对,加解密,签名验签,添加根据私钥生成公钥, 公钥未压缩与压缩格式
-#                      DESC
 
   spec.description = '基于 OpenSSL 封装 SM2 加解密、SM2 签名验签、等。'
   spec.homepage     = "https://github.com/Ann-iOS/DBChainSm2"
