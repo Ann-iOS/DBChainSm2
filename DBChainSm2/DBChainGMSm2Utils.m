@@ -118,7 +118,8 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
         if(!EC_POINT_get_affine_coordinates_GFp(group, pub_key, gx, gy , NULL))
         {
-            printf("公钥分割错误");
+            NSLog(@"公钥分割错误");
+            return  @[];
         }
 
         char *pubGx = BN_bn2hex(gx);
@@ -264,7 +265,7 @@ static int kDefaultEllipticCurveType = NID_sm2;
 
     if(!EC_POINT_get_affine_coordinates_GFp(group, pubkey, gx, gy , NULL))
     {
-        printf("公钥分割错误");
+        NSLog(@"公钥分割错误");
         return  @"";
     }
 

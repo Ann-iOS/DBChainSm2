@@ -26,6 +26,7 @@ extension StringProtocol {
 
 
 @objc public enum ChainType: Int {
+
     case COSMOS_MAIN
     case IRIS_MAIN
     case BINANCE_MAIN
@@ -33,8 +34,6 @@ extension StringProtocol {
     case IOV_MAIN
     case BAND_MAIN
     case SECRET_MAIN
-    case DBCHAIN_MAIN
-
     case DBCHAIN_MAIN
 
     case BINANCE_TEST
@@ -87,16 +86,11 @@ open class Address: NSObject {
 
         let shaArr = sha256[0...19]
 //        print("公钥Sha256数组: \(shaArr)")
-
         let ripemd160 = Data(shaArr)
        if (chain == ChainType.COSMOS_MAIN) {
            result = try! SegwitAddrCoder.shared.encode2(hrp: "cosmos", program: ripemd160)
        } else if (chain == ChainType.DBCHAIN_MAIN) {
-<<<<<<< HEAD
-           result = try! SegwitAddrCoder.shared.encode2(hrp: "dbchain", program: ripemd160)
-=======
         result = try! SegwitAddrCoder.shared.encode2(hrp: "dbchain", program: ripemd160)
->>>>>>> dev
        } else if (chain == ChainType.IRIS_MAIN) {
            result = try! SegwitAddrCoder.shared.encode2(hrp: "iaa", program: ripemd160)
        } else if (chain == ChainType.BINANCE_MAIN) {
