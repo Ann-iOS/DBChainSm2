@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "DBChainSm2"
-  spec.version      = "2.5.0"
+  spec.version      = "2.5.1"
 
   spec.summary      = "国密 SM2 的 OC 封装，基于 OpenSSL。"
 
